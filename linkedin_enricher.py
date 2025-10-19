@@ -7,9 +7,14 @@ Handles LinkedIn profile enrichment via Composio API
 import json
 from typing import Dict, Optional
 from composio import ComposioToolSet, Action
-from minimal_config import COMPOSIO_API_KEY
+from minimal_config import (
+    COMPOSIO_API_KEY, 
+    GROQ_API_KEY, 
+    GROQ_MODEL,
+    LINKEDIN_CONNECTED_ACCOUNT_ID,
+    LINKEDIN_ENTITY_ID
+)
 from groq import Groq
-from minimal_config import GROQ_API_KEY, GROQ_MODEL
 
 
 class LinkedInEnricher:
@@ -23,8 +28,8 @@ class LinkedInEnricher:
     def fetch_real_linkedin_data(self, linkedin_url: str) -> Dict:
         """Fetch real LinkedIn data via Composio API"""
         try:
-            linkedin_account_id = "ccf2d878-e091-4049-a5fa-57b8a1b3230f"
-            entity_id = "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be"
+            linkedin_account_id = LINKEDIN_CONNECTED_ACCOUNT_ID
+            entity_id = LINKEDIN_ENTITY_ID
             
             print(f"🔍 Fetching LinkedIn data for: {linkedin_url}")
             

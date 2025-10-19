@@ -44,12 +44,43 @@ Advanced candidate enrichment system using LinkedIn API, LLM processing, and aut
 pip install -r requirements_minimal.txt
 ```
 
-### 2. Configure API Keys
-Update `minimal_config.py` with your credentials:
-- Composio API Key
-- Groq API Key  
-- Google Sheets credentials
-- LinkedIn connection
+### 2. Configure Environment Variables
+Copy the example environment file and configure your credentials:
+
+```bash
+# Copy the example file
+cp .env.example .env
+```
+
+Then edit `.env` with your actual API keys and IDs:
+
+```env
+# Composio API Key - Get from https://app.composio.dev/settings
+COMPOSIO_API_KEY=your_actual_composio_api_key
+
+# Gmail Configuration (get from Composio Dashboard after connecting Gmail)
+GMAIL_USER_ID=your_gmail_user_id
+GMAIL_ACCOUNT_ID=your_gmail_account_id
+GMAIL_AUTH_CONFIG_ID=your_gmail_auth_config_id
+
+# LinkedIn Configuration (get from Composio Dashboard after connecting LinkedIn)
+LINKEDIN_CONNECTED_ACCOUNT_ID=your_linkedin_connected_account_id
+LINKEDIN_ENTITY_ID=your_linkedin_entity_id
+COMPOSIO_LINKEDIN_AUTH=your_linkedin_auth_token
+
+# Google Sheets Configuration (get from Composio Dashboard after connecting Google Sheets)
+GOOGLE_SHEETS_AUTH_CONFIG_ID=your_google_sheets_auth_config_id
+GOOGLE_SHEETS_ACCOUNT_ID=your_google_sheets_account_id
+GOOGLE_SHEETS_USER_ID=your_google_sheets_user_id
+
+# Groq API Key - Get from https://console.groq.com/keys
+GROQ_API_KEY=your_groq_api_key
+
+# OpenAI API Key (optional backup) - Get from https://platform.openai.com/api-keys
+OPENAI_API_KEY=your_openai_api_key
+```
+
+> **🔒 Security Note**: Never commit your actual `.env` file to Git! The `.gitignore` file is configured to exclude it.
 
 ### 3. Run Complete Pipeline
 ```bash
@@ -107,11 +138,26 @@ python csv_exporter.py
 - **Detailed**: `Recruiter_Candidates_YYYYMMDD_HHMMSS.csv`
 - **Summary**: `Recruiter_Summary_YYYYMMDD_HHMMSS.csv`
 
-## 🔒 Security
-- All API keys stored in `.env` file
-- Google Sheets created under service account
-- LinkedIn data fetched via authenticated API
-- No sensitive data logged
+## 🔒 Security & Best Practices
+
+### Environment Configuration
+- **ALL** credentials stored in `.env` file (never committed to Git)
+- Use `.env.example` as a template for setup
+- Each team member should have their own `.env` file
+- API keys are loaded using `python-dotenv` for security
+
+### Credential Management
+- **Composio API Key**: Get from [Composio Dashboard](https://app.composio.dev/settings)
+- **Gmail IDs**: Obtained after connecting Gmail to Composio
+- **LinkedIn IDs**: Obtained after connecting LinkedIn to Composio  
+- **Google Sheets IDs**: Obtained after connecting Google Sheets to Composio
+- **Groq API Key**: Get from [Groq Console](https://console.groq.com/keys)
+
+### Git Security
+- `.env` file is automatically excluded via `.gitignore`
+- Only `.env.example` template is committed
+- No hardcoded credentials in source code
+- All imports use environment variable names
 
 ## 📈 Success Metrics
 - ✅ 100% candidate processing success rate

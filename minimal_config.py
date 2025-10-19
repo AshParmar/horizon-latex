@@ -1,5 +1,6 @@
 """
 Minimal Configuration for Composio + Groq Enrichment
+All credentials loaded from .env file for security
 """
 
 import os
@@ -15,21 +16,38 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 # LinkedIn Integration
 LINKEDIN_CONNECTED_ACCOUNT_ID = os.getenv("LINKEDIN_CONNECTED_ACCOUNT_ID", "")
 LINKEDIN_ENTITY_ID = os.getenv("LINKEDIN_ENTITY_ID", "")
-
-# User ID for Composio (must be UUID format)
-USER_ID = os.getenv("LINKEDIN_ENTITY_ID", "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be")
+COMPOSIO_LINKEDIN_AUTH = os.getenv("COMPOSIO_LINKEDIN_AUTH", "")
 
 # Gmail Integration Credentials
-GMAIL_ACCOUNT_ID = "ca_T1yVWb6wbXsD"
-GMAIL_USER_ID = "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be"
-GMAIL_AUTH_CONFIG_ID = "ac_YT-t3VYqgxGU"
+GMAIL_USER_ID = os.getenv("GMAIL_USER_ID", "")
+GMAIL_ACCOUNT_ID = os.getenv("GMAIL_ACCOUNT_ID", "")
+GMAIL_AUTH_CONFIG_ID = os.getenv("GMAIL_AUTH_CONFIG_ID", "")
+
+# User ID for Composio (fallback to Gmail User ID if not specified)
+USER_ID = os.getenv("GMAIL_USER_ID", os.getenv("LINKEDIN_ENTITY_ID", ""))
 
 # Google Sheets Integration
-GOOGLE_SHEETS_AUTH_CONFIG_ID = "ac_R98zJIL-7OuB"
-GOOGLE_SHEETS_ACCOUNT_ID = "ca_90gZQ-91AShF"
-GOOGLE_SHEETS_USER_ID = "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be"
+GOOGLE_SHEETS_AUTH_CONFIG_ID = os.getenv("GOOGLE_SHEETS_AUTH_CONFIG_ID", "")
+GOOGLE_SHEETS_ACCOUNT_ID = os.getenv("GOOGLE_SHEETS_ACCOUNT_ID", "")
+GOOGLE_SHEETS_USER_ID = os.getenv("GOOGLE_SHEETS_USER_ID", os.getenv("GMAIL_USER_ID", ""))
 
 # LLM Settings  
 GROQ_MODEL = "llama-3.1-8b-instant"  # Reliable primary model
 GROQ_MODEL_BACKUP = "llama-3.1-70b-versatile"  # Backup model
 GROQ_MODEL_ALTERNATIVE = "meta-llama/llama-4-scout-17b-16e-instruct"  # Alternative for specific tasks
+
+# Validation
+def validate_config():
+    """Validate that required environment variables are set"""
+    required_vars = {
+        "COMPOSIO_API_KEY": COMPOSIO_API_KEY,
+        "GROQ_API_KEY": GROQ_API_KEY,
+    }
+    
+    missing_vars = [var for var, value in required_vars.items() if not value]
+    
+    if missing_vars:
+        raise ValueError(f"Missing required environment variables: {', '.join(missing_vars)}. Please check your .env file.")
+    
+    print("✅ Configuration loaded successfully")
+    return True

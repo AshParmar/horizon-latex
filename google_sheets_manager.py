@@ -8,7 +8,12 @@ import json
 from datetime import datetime
 from typing import List, Dict, Optional
 from composio import ComposioToolSet, Action
-from minimal_config import COMPOSIO_API_KEY
+from minimal_config import (
+    COMPOSIO_API_KEY, 
+    GOOGLE_SHEETS_ACCOUNT_ID, 
+    GOOGLE_SHEETS_USER_ID,
+    GOOGLE_SHEETS_AUTH_CONFIG_ID
+)
 
 
 class GoogleSheetsManager:
@@ -16,8 +21,8 @@ class GoogleSheetsManager:
     
     def __init__(self):
         self.composio_toolset = ComposioToolSet(api_key=COMPOSIO_API_KEY)
-        self.working_account_id = "36216c07-c146-4ae3-9b2b-02e3a7a9fcc0"
-        self.entity_id = "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be"
+        self.working_account_id = GOOGLE_SHEETS_ACCOUNT_ID
+        self.entity_id = GOOGLE_SHEETS_USER_ID
         print("📊 Google Sheets Manager initialized")
     
     def create_empty_sheet(self, sheet_title: str) -> Optional[Dict]:

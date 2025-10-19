@@ -11,7 +11,12 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from composio import ComposioToolSet
 from composio.client.enums import Action
-from minimal_config import COMPOSIO_API_KEY
+from minimal_config import (
+    COMPOSIO_API_KEY,
+    GMAIL_ACCOUNT_ID,
+    GMAIL_USER_ID,
+    GMAIL_AUTH_CONFIG_ID
+)
 
 class AutoGmailMonitor:
     """Automatically monitors Gmail and downloads all resume PDFs"""
@@ -20,10 +25,10 @@ class AutoGmailMonitor:
         """Initialize with your Gmail credentials"""
         self.composio_toolset = ComposioToolSet(api_key=COMPOSIO_API_KEY)
         
-        # Your Gmail account details
-        self.gmail_account_id = "ca_T1yVWb6wbXsD"
-        self.user_id = "pg-test-82fe45fd-72dd-4266-8d24-61c90d1c01be"
-        self.auth_config_id = "ac_YT-t3VYqgxGU"
+        # Your Gmail account details from environment variables
+        self.gmail_account_id = GMAIL_ACCOUNT_ID
+        self.user_id = GMAIL_USER_ID
+        self.auth_config_id = GMAIL_AUTH_CONFIG_ID
         
         # Setup folders
         self.incoming_folder = Path("incoming_resumes")
