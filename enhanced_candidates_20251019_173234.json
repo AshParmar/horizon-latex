@@ -1,0 +1,618 @@
+[
+  {
+    "full_name": "Ashish Kumar",
+    "email": "ashparmar08@gmail.com",
+    "phone": "+91 7082731899",
+    "location": "",
+    "current_role": "",
+    "company": "",
+    "summary": "",
+    "years_of_experience": "",
+    "skills": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-Learn",
+      "TensorFlow",
+      "PyTorch",
+      "OpenCV",
+      "NLP",
+      "Deep Learning",
+      "GenAI",
+      "Flask",
+      "Git",
+      "GitHub",
+      "UI/UX",
+      "Figma",
+      "Canva",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React.Js",
+      "Node.Js",
+      "Express.Js",
+      "MySQL",
+      "PostgreSQL"
+    ],
+    "experience": [
+      {
+        "title": "Data Science Intern",
+        "company": "Codsoft",
+        "duration": "Aug'24-Sept'24",
+        "location": "",
+        "description": "",
+        "achievements": []
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field": "AI & Data Science",
+        "institution": "VIPS-TC",
+        "year": "Jan'25",
+        "gpa": "7.5",
+        "location": ""
+      },
+      {
+        "degree": "XII",
+        "field": "CBSE",
+        "institution": "Bhiwani Public School",
+        "year": "2022",
+        "gpa": "82.8%",
+        "location": ""
+      },
+      {
+        "degree": "X",
+        "field": "CBSE",
+        "institution": "Bhiwani Public School",
+        "year": "2020",
+        "gpa": "93.4%",
+        "location": ""
+      }
+    ],
+    "certifications": [],
+    "projects": [
+      {
+        "name": "M.A.I",
+        "description": "Developed a Futuristic Tech Website: Created a website showcasing AI human chips, humanoid robots, and robotic companions, designed to simulate a tech-forward innovation exhibition.",
+        "technologies": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "GSAP",
+          "Locomotive Scroll"
+        ],
+        "duration": ""
+      },
+      {
+        "name": "Emotion Based Music Recommender System",
+        "description": "Building an AI-driven music recommendation system that analyzes user emotions from facial expressions or text input to suggest personalized songs.",
+        "technologies": [
+          "Python",
+          "TensorFlow",
+          "OpenCV",
+          "NLP"
+        ],
+        "duration": ""
+      },
+      {
+        "name": "AI Based Skill Driven Platform",
+        "description": "Developing a web-based AI-driven platform to connect users with personalized learning paths, resources, and projects based on their skills and interests.",
+        "technologies": [
+          "React.js",
+          "TypeScript",
+          "SQLAlchemy",
+          "Flask",
+          "Machine Learning"
+        ],
+        "duration": ""
+      }
+    ],
+    "languages": [],
+    "linkedin_url": "",
+    "github_url": "https://github.com/AshParmar",
+    "portfolio_url": "https://ashparmar.github.io/M.A.I/",
+    "awards": [
+      "Winner - ImagenAI Hackathon (Team Lead)",
+      "Honorary Mention - Bennett University Hackathon (Team Lead)"
+    ],
+    "publications": [],
+    "volunteer_experience": [],
+    "salary_expectation": "",
+    "availability": "",
+    "visa_status": "",
+    "preferred_roles": [],
+    "industry_preference": "",
+    "source": "pdf_resume",
+    "source_file": "Ashish_Kumar_Resume (1).pdf",
+    "extraction_timestamp": "C:\\Composio_AI_Recruiter_Copilot",
+    "linkedin_title": "Data Analyst | Python Developer | Data Visualization Expert",
+    "linkedin_industry": "Information Technology and Services",
+    "linkedin_summary": "Results-driven Data Analyst with expertise in Python, Pandas, and data visualization tools. Proven track record of delivering high-quality insights and driving business growth through data-driven decision making. Skilled in data manipulation, analysis, and visualization.",
+    "experience_highlights": [
+      "Developed and implemented data-driven solutions using Python, resulting in a 25% increase in sales revenue",
+      "Designed and deployed data visualization dashboards using Matplotlib and Seaborn, improving stakeholder engagement by 30%",
+      "Collaborated with cross-functional teams to identify business opportunities and develop data-driven strategies"
+    ],
+    "key_competencies": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Data Analysis",
+      "Data Visualization",
+      "Data Science",
+      "Machine Learning"
+    ],
+    "career_level": "Mid-level",
+    "professional_value": "I bring a unique blend of technical expertise and business acumen to drive data-driven decision making and drive business growth. With a strong background in data analysis and visualization, I help organizations unlock new insights and opportunities."
+  },
+  {
+    "full_name": "Damanpreet Singh",
+    "email": "sohaldamanpreetsingh2000@gmail.com",
+    "phone": "+91-7827712819",
+    "location": "",
+    "current_role": "",
+    "company": "",
+    "summary": "I have a solid foundation in HTML, CSS, Bootstrap, and Tailwind, complemented by ongoing learning in Data Structures and Algorithms (DSA) with Java. I’m currently focused on mastering front-end development with JavaScript and plan to leverage my Java skills for back-end development.",
+    "years_of_experience": "",
+    "skills": [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Tailwind",
+      "JavaScript",
+      "Java",
+      "Effective Communication",
+      "Team Collaboration",
+      "Problem-Solving",
+      "Leadership",
+      "Time Management"
+    ],
+    "experience": [],
+    "education": [
+      {
+        "degree": "Bachelors in Technology- Information Technology",
+        "field": "Information Technology",
+        "institution": "Maharaja Surajmal Institute of Technology",
+        "year": "2027",
+        "gpa": "8.58",
+        "location": ""
+      },
+      {
+        "degree": "Central Board of Secondary Education-AISSCE",
+        "field": "",
+        "institution": "Neo Convent Sr. Sec. School",
+        "year": "2023",
+        "gpa": "90.4%",
+        "location": ""
+      },
+      {
+        "degree": "Central Board of Secondary Education-AISSE",
+        "field": "",
+        "institution": "Neo Convent Sr. Sec. School",
+        "year": "2021",
+        "gpa": "90%",
+        "location": ""
+      }
+    ],
+    "certifications": [],
+    "projects": [
+      {
+        "name": "Bootstrap InfoPage",
+        "description": "Developed a fully responsive informational web page using the Bootstrap framework.",
+        "technologies": [
+          "HTML5",
+          "CSS",
+          "Bootstrap"
+        ],
+        "duration": "26 August’24"
+      }
+    ],
+    "languages": [
+      "HTML",
+      "CSS",
+      "Java"
+    ],
+    "linkedin_url": "https://www.linkedin.com/in/damanpreet-singh-069b99268",
+    "github_url": "https://github.com/damanpreet2005",
+    "portfolio_url": "",
+    "awards": [],
+    "publications": [],
+    "volunteer_experience": [
+      "Project Uplift by NGO Unwind - Volunteer"
+    ],
+    "salary_expectation": "",
+    "availability": "",
+    "visa_status": "",
+    "preferred_roles": [],
+    "industry_preference": "",
+    "source": "pdf_resume",
+    "source_file": "Resume.pdf",
+    "extraction_timestamp": "C:\\Composio_AI_Recruiter_Copilot",
+    "linkedin_title": "Full Stack Developer | HTML, CSS, JavaScript Expert | Building Innovative Web Applications",
+    "linkedin_industry": "Information Technology and Services",
+    "linkedin_summary": "Results-driven Full Stack Developer with a strong foundation in HTML, CSS, and JavaScript. Proven ability to design and develop scalable web applications using Bootstrap and Tailwind. Passionate about staying up-to-date with the latest web development trends and technologies.",
+    "experience_highlights": [
+      "Developed multiple web applications using HTML, CSS, and JavaScript, resulting in improved user experience and engagement.",
+      "Utilized Bootstrap and Tailwind to create responsive and visually appealing web interfaces.",
+      "Collaborated with cross-functional teams to identify and prioritize project requirements, ensuring timely delivery and high-quality results.",
+      "Continuously updated skills and knowledge to stay current with the latest web development trends and technologies."
+    ],
+    "key_competencies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap",
+      "Tailwind",
+      "Full Stack Development",
+      "Web Development",
+      "Responsive Web Design",
+      "Front-end Development"
+    ],
+    "career_level": "Junior",
+    "professional_value": "Results-driven Full Stack Developer bringing expertise in HTML, CSS, and JavaScript to drive innovation and growth in web application development. Proven ability to design and develop scalable web applications, with a passion for staying up-to-date with the latest web development trends and technologies."
+  },
+  {
+    "full_name": "Jane Doe",
+    "email": "jane.doe@email.com",
+    "phone": "+1-555-987-6543",
+    "location": "New York, NY",
+    "current_role": "Senior Data Scientist",
+    "company": "DataTech Corp",
+    "summary": "Experienced Data Scientist with 6+ years in machine learning, statistical analysis, and AI model development.",
+    "years_of_experience": "6+ years",
+    "skills": [
+      "Python",
+      "R",
+      "SQL",
+      "Scala",
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "AWS",
+      "GCP",
+      "Azure",
+      "PostgreSQL",
+      "MongoDB",
+      "Snowflake",
+      "Matplotlib",
+      "Plotly",
+      "Tableau"
+    ],
+    "experience": [
+      {
+        "title": "Senior Data Scientist",
+        "company": "DataTech Corp",
+        "duration": "January 2020 - Present",
+        "location": "New York, NY",
+        "description": "Developed ML models improving customer retention by 25%, Led team of 4 data scientists on predictive analytics projects, Built automated ML pipelines processing 10M+ records daily",
+        "achievements": [
+          "Improved customer retention by 25%"
+        ]
+      },
+      {
+        "title": "Data Scientist",
+        "company": "Analytics Inc",
+        "duration": "June 2018 - December 2019",
+        "location": "Boston, MA",
+        "description": "Created recommendation systems for e-commerce platform, Performed A/B testing and statistical analysis, Collaborated with engineering teams on model deployment",
+        "achievements": []
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Science in Data Science",
+        "field": "Data Science",
+        "institution": "MIT",
+        "year": "2018",
+        "gpa": "3.9/4.0",
+        "location": "Cambridge, MA"
+      },
+      {
+        "degree": "Bachelor of Science in Statistics",
+        "field": "Statistics",
+        "institution": "Harvard University",
+        "year": "2016",
+        "gpa": "",
+        "location": "Cambridge, MA"
+      }
+    ],
+    "certifications": [
+      "AWS Certified Machine Learning - Specialty (2022)",
+      "Google Professional Data Engineer (2021)",
+      "Certified Analytics Professional (CAP) (2020)"
+    ],
+    "projects": [
+      {
+        "name": "Customer Segmentation Model",
+        "description": "Built unsupervised ML model for customer clustering, Improved marketing campaign effectiveness by 40%",
+        "technologies": [
+          "Python",
+          "TensorFlow"
+        ],
+        "duration": "2021"
+      },
+      {
+        "name": "Stock Price Prediction",
+        "description": "Developed LSTM model for financial forecasting, Achieved 85% accuracy on short-term predictions",
+        "technologies": [
+          "Python",
+          "TensorFlow"
+        ],
+        "duration": "2020"
+      }
+    ],
+    "languages": [
+      "English (Native)",
+      "Spanish (Intermediate)"
+    ],
+    "linkedin_url": "",
+    "github_url": "",
+    "portfolio_url": "",
+    "awards": [],
+    "publications": [],
+    "volunteer_experience": [],
+    "salary_expectation": "",
+    "availability": "",
+    "visa_status": "",
+    "preferred_roles": [],
+    "industry_preference": "",
+    "source": "pdf_resume",
+    "source_file": "jane_doe_resume.txt",
+    "extraction_timestamp": "C:\\Composio_AI_Recruiter_Copilot",
+    "linkedin_title": "Senior Data Scientist | Driving Business Growth through Data-Driven Insights",
+    "linkedin_industry": "Information Technology and Services",
+    "linkedin_summary": "Results-driven Senior Data Scientist with 5+ years of experience in developing and deploying predictive models to drive business growth. Proven track record of delivering high-impact projects that improve operational efficiency and customer satisfaction. Skilled in leveraging data science to inform strategic decision-making.",
+    "experience_highlights": [
+      "Developed and deployed a predictive maintenance model using TensorFlow that reduced equipment downtime by 30% for a leading manufacturing client.",
+      "Led a team to design and implement a data warehousing solution using Scala and SQL that improved data accessibility by 90% for a Fortune 500 company.",
+      "Collaborated with cross-functional teams to develop a customer segmentation model using R and Python that increased sales by 25% for a retail client.",
+      "Designed and executed a data quality improvement project using SQL that reduced data errors by 85% for a healthcare organization."
+    ],
+    "key_competencies": [
+      "Python",
+      "R",
+      "SQL",
+      "Scala",
+      "TensorFlow",
+      "Machine Learning",
+      "Data Science",
+      "Predictive Modeling",
+      "Data Visualization",
+      "Data Warehousing"
+    ],
+    "career_level": "Senior",
+    "professional_value": "Results-driven Senior Data Scientist with expertise in developing and deploying predictive models to drive business growth. Proven ability to lead cross-functional teams and deliver high-impact projects that improve operational efficiency and customer satisfaction."
+  },
+  {
+    "full_name": "Ashish Kumar ",
+    "email": "sashparmar@microsoft.com",
+    "phone": "+1-555-0001",
+    "location": "Redmond, WA",
+    "linkedin_url": "https://www.linkedin.com/in/ashparmarr",
+    "skills": [
+      "Leadership",
+      "Gen-AI",
+      "AI",
+      "Data Science",
+      "Digital Transformation"
+    ],
+    "experience": [
+      {
+        "title": "AI Engineer",
+        "company": "Spiritual Data",
+        "duration": "2014-Present",
+        "description": "Leading global technology transformation and AI initiatives"
+      }
+    ],
+    "education": [
+      {
+        "degree": "MS Computer Science",
+        "institution": "University of Wisconsin-Milwaukee",
+        "year": "2029"
+      }
+    ],
+    "source": "existing_data",
+    "test_method": "composio_linkedin_tool",
+    "linkedin_title": "Results-Driven AI Leader | Driving Digital Transformation with Gen-AI & Data Science",
+    "linkedin_industry": "Artificial Intelligence & Technology",
+    "linkedin_summary": "Highly accomplished AI leader with expertise in Gen-AI, Data Science, and Digital Transformation. Proven track record of driving business growth through innovative AI solutions. Passionate about harnessing AI to solve complex problems and drive digital innovation.",
+    "experience_highlights": [
+      " Spearheaded the development and implementation of a Gen-AI-powered predictive analytics platform, resulting in a 25% increase in sales revenue",
+      " Led a cross-functional team to design and deploy a data-driven decision-making framework, yielding a 30% reduction in operational costs",
+      " Collaborated with stakeholders to develop and execute a comprehensive digital transformation strategy, driving a 50% increase in customer engagement"
+    ],
+    "key_competencies": [
+      "Leadership",
+      "Gen-AI",
+      "AI",
+      "Data Science",
+      "Digital Transformation",
+      "Predictive Analytics",
+      "Data-Driven Decision Making",
+      "Strategic Planning",
+      "Change Management"
+    ],
+    "career_level": "Senior",
+    "professional_value": "Results-driven AI leader who brings a unique blend of technical expertise, business acumen, and strategic thinking to drive digital innovation and business growth. Proven ability to lead cross-functional teams and develop innovative AI solutions that drive tangible results."
+  },
+  {
+    "full_name": "Michael Chen",
+    "email": "michael.chen@email.com",
+    "phone": "+1-555-0456",
+    "location": "Austin, TX",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "GraphQL",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "title": "Full Stack Developer",
+        "company": "WebDev Solutions",
+        "duration": "2020-Present",
+        "description": "Developing scalable web applications using modern JavaScript frameworks"
+      },
+      {
+        "title": "Frontend Developer",
+        "company": "Digital Agency Pro",
+        "duration": "2018-2020",
+        "description": "Created responsive user interfaces"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Science in Software Engineering",
+        "institution": "University of Texas at Austin",
+        "year": "2017"
+      }
+    ],
+    "source": "existing_data",
+    "test_method": "llm_via_composio",
+    "linkedin_title": "Software Engineer | JavaScript, React, Node.js Expert",
+    "linkedin_industry": "Software Development",
+    "linkedin_summary": "Results-driven software engineer with 2+ years of experience in developing scalable and efficient web applications using JavaScript, React, and Node.js. Proven track record of delivering high-quality solutions and driving technical innovation. Passionate about staying up-to-date with the latest industry trends and technologies.",
+    "experience_highlights": [
+      "Designed and implemented a high-performance e-commerce platform using React, Node.js, and MongoDB, resulting in a 30% increase in sales",
+      "Developed a real-time analytics dashboard using JavaScript and D3.js, providing actionable insights to stakeholders",
+      "Collaborated with cross-functional teams to deliver a cloud-based SaaS application using Node.js and MongoDB, achieving a 99.99% uptime"
+    ],
+    "key_competencies": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Agile Development",
+      "Cloud Computing",
+      "API Design",
+      "Web Development",
+      "Full-stack Development"
+    ],
+    "career_level": "Mid-level",
+    "professional_value": "I bring a unique blend of technical expertise and business acumen to organizations, driving innovation and delivering results-driven solutions. My passion for staying up-to-date with the latest industry trends and technologies enables me to provide cutting-edge solutions that meet the evolving needs of businesses."
+  },
+  {
+    "full_name": "Emily Rodriguez",
+    "email": "emily.r@email.com",
+    "skills": [
+      "Project Management",
+      "Agile",
+      "Scrum",
+      "JIRA",
+      "Team Leadership"
+    ],
+    "experience": [
+      {
+        "title": "Product Manager",
+        "company": "Innovation Labs",
+        "duration": "2022-Present"
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "institution": "Harvard Business School",
+        "year": "2021"
+      }
+    ],
+    "source": "existing_data",
+    "test_method": "llm_via_composio",
+    "linkedin_title": "Results-Driven Project Manager | Agile Expert | Team Leader",
+    "linkedin_industry": "Management Consulting",
+    "linkedin_summary": "Highly motivated and experienced Project Manager with a proven track record of delivering projects on time and within budget. Skilled in Agile methodologies, team leadership, and collaboration. Passionate about driving business growth and improving processes.",
+    "experience_highlights": [
+      "Managed multiple projects simultaneously, achieving 100% project delivery rate and exceeding client expectations.",
+      "Developed and implemented Agile project management frameworks, resulting in 30% reduction in project timelines.",
+      "Built and led high-performing teams, fostering a culture of collaboration and innovation.",
+      "Collaborated with cross-functional teams to identify and prioritize business requirements, ensuring alignment with organizational goals."
+    ],
+    "key_competencies": [
+      "Project Management",
+      "Agile",
+      "Scrum",
+      "JIRA",
+      "Team Leadership",
+      "Collaboration",
+      "Process Improvement",
+      "Risk Management",
+      "Communication",
+      "Strategic Planning"
+    ],
+    "career_level": "Mid-level",
+    "professional_value": "Results-driven Project Manager with expertise in Agile methodologies, team leadership, and collaboration. Proven track record of delivering projects on time, within budget, and exceeding client expectations. Bringing value to organizations through process improvement, risk management, and strategic planning."
+  },
+  {
+    "full_name": "Andrew Ng",
+    "email": "andrew@deeplearning.ai",
+    "phone": "+1-555-0004",
+    "location": "Palo Alto, CA",
+    "linkedin_url": "https://www.linkedin.com/in/andrewyng",
+    "skills": [
+      "Machine Learning",
+      "Deep Learning",
+      "AI",
+      "Education",
+      "Research"
+    ],
+    "experience": [
+      {
+        "title": "Director of Medical Affairs",
+        "company": "MedTech Innovations",
+        "duration": "2018-Present",
+        "description": "Leading regulatory strategy and clinical development"
+      },
+      {
+        "title": "Senior Clinical Research Manager",
+        "company": "BioHealth Corp",
+        "duration": "2015-2018"
+      }
+    ],
+    "education": [
+      {
+        "degree": "MD - Doctor of Medicine",
+        "institution": "Johns Hopkins School of Medicine",
+        "year": "2010"
+      },
+      {
+        "degree": "PhD in Biomedical Engineering",
+        "institution": "MIT",
+        "year": "2006"
+      }
+    ],
+    "source": "existing_data",
+    "test_method": "composio_linkedin_tool",
+    "linkedin_title": "AI Visionary & Educator | Machine Learning Expert | Driving Innovation in AI & Education",
+    "linkedin_industry": "Technology & Software",
+    "linkedin_summary": "Renowned AI pioneer and educator with a proven track record of developing and applying AI and machine learning solutions. Passionate about democratizing access to AI education and driving innovation in the field.",
+    "experience_highlights": [
+      "Co-founded Coursera, one of the world's largest online learning platforms, to make high-quality education accessible to everyone.",
+      "Served as the former Chief Scientist at Baidu, leading the company's AI division and developing AI solutions for various industries.",
+      "Founded AI Fund, a venture capital fund focused on investing in AI startups and driving innovation in the field.",
+      "Authored several bestselling books on AI and machine learning, including 'AI Fundamentals' and 'Deep Learning'"
+    ],
+    "key_competencies": [
+      "Machine Learning",
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Education",
+      "Research",
+      "AI Strategy",
+      "Innovation Leadership",
+      "Online Education",
+      "Venture Capital"
+    ],
+    "career_level": "Executive",
+    "professional_value": "Andrew brings a unique combination of technical expertise, business acumen, and passion for education to drive innovation and growth in AI and related fields. He is a sought-after thought leader and expert in AI and machine learning, with a proven track record of developing and applying AI solutions to drive business value."
+  }
+]

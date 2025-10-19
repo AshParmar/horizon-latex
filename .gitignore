@@ -1,0 +1,40 @@
+# Virtual Environment
+comp/
+venv/
+env/
+.env/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Output files (keep only the latest)
+enhanced_candidates_*.json
+Ultimate_Recruiter_Export_*.csv
+
+# But keep the latest ones (we'll add them manually)
+!enhanced_candidates_20251019_173234.json
+!Ultimate_Recruiter_Export_20251019_173234.csv
+
+# Temporary files
+*.tmp
+*.temp
