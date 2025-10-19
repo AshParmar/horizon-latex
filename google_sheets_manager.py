@@ -33,7 +33,6 @@ class GoogleSheetsManager:
             create_result = self.composio_toolset.execute_action(
                 action=Action.GOOGLESHEETS_CREATE_GOOGLE_SHEET1,
                 params={"title": sheet_title},
-                connected_account_id=self.working_account_id,
                 entity_id=self.entity_id
             )
             
@@ -72,7 +71,6 @@ class GoogleSheetsManager:
                     "values": data,
                     "valueInputOption": "RAW"
                 },
-                connected_account_id=self.working_account_id,
                 entity_id=self.entity_id
             )
             
