@@ -8,7 +8,7 @@
 [![Composio](https://img.shields.io/badge/Composio-0.8.20-orange.svg)](https://composio.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## ⚠️ IMPORTANT: Installation Requirements
+## Installation Requirements
 
 **This project requires Composio SDK v0.8.20 specifically.** Newer versions (v1.0+) use incompatible APIs.
 
