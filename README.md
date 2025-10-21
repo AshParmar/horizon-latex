@@ -5,8 +5,14 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.6.10-green.svg)](https://github.com/langchain-ai/langgraph)
-[![Composio](https://img.shields.io/badge/Composio-Latest-orange.svg)](https://composio.dev)
+[![Composio](https://img.shields.io/badge/Composio-0.8.20-orange.svg)](https://composio.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## ⚠️ IMPORTANT: Installation Requirements
+
+**This project requires Composio SDK v0.8.20 specifically.** Newer versions (v1.0+) use incompatible APIs.
+
+👉 **[READ INSTALLATION.md FIRST](INSTALLATION.md)** for step-by-step setup to avoid common errors.
 
 ---
 
@@ -52,7 +58,7 @@ Traditional recruitment is painfully slow and manual:
 4. ✅ **Scores Candidates** with customizable AI criteria
 5. ✅ **Conditional Routing** - Only qualified candidates proceed to scheduling
 6. ✅ **Schedules Interviews** in Google Calendar automatically
-7. ✅ **Exports to Google Sheets** - 2 sheets: all candidates + scheduled interviews
+7. ✅ **Exports to Google Sheets** - 2 separate spreadsheet files: all candidates + scheduled interviews
 8. ✅ **Generates Reports** - JSON & CSV exports for analysis
 
 ---
@@ -74,9 +80,9 @@ Traditional recruitment is painfully slow and manual:
 
 ### 📊 **Comprehensive Output**
 - **JSON Database**: Complete candidate data with enrichment metadata
-- **Google Sheets**: 
-  - Sheet 1: All candidates with scores and status
-  - Sheet 2: Shortlisted candidates with interview schedules
+- **Google Sheets** (TWO separate spreadsheet files): 
+  - First Sheet: "AI_Recruiter_Database" - All candidates with scores and status
+  - Second Sheet: "Interview Schedule" - Shortlisted candidates with interview schedules
 - **CSV Export**: Interview schedule for external tools
 - **Calendar Events**: Direct Google Calendar links for each interview
 
@@ -172,7 +178,7 @@ Traditional recruitment is painfully slow and manual:
 - ✅ **8 Distinct Nodes** - Each step clearly separated
 - ✅ **Conditional Routing** - Only qualified candidates get interviews
 - ✅ **Dual Strategy** - LinkedIn API with LLM fallback
-- ✅ **Two-Sheet Export** - All candidates + Selected interviews
+- ✅ **Two Separate Spreadsheet Files** - All candidates + Selected interviews
 - ✅ **Smart Decisions** - Threshold-based filtering
 
 ### Technology Stack
@@ -231,7 +237,7 @@ Here's how the components work together in the pipeline:
    ├─ Include: scores, skills, status, rationale
    └─ Return: Shareable Google Sheets URL
                     ↓
-📅 STEP 8: Interview Schedule Sheet (google_sheets_manager.py + orchestrator)
+📅 STEP 8: Interview Schedule Sheet (recruitment_agent.py)
    ├─ Create separate "Interview Schedule" Google Sheet
    ├─ Add ONLY shortlisted candidates
    ├─ Include: interview times, calendar links, rationale
@@ -244,9 +250,11 @@ Here's how the components work together in the pipeline:
 - 🎯 **8 Sequential Steps** - Clear data flow from email to report
 - 🔀 **1 Decision Point** - Conditional routing at step 5 (scoring threshold)
 - 📝 **Each Step** - Uses specific utility file (see Component Details below)
-- 🔗 **Orchestration** - Steps 4-8 coordinated by `recruitment_agent.py`
+- 🔗 **Orchestration** - Steps 4-5 use `recruitment_agent.py` (scoring + scheduling)
 - 🚀 **Main Controller** - `ai_recruiter_pipeline.py` manages entire LangGraph workflow
-- 📊 **Google Sheets Output** - 2 separate sheets (All Candidates database + Interview Schedule)
+- 📊 **Google Sheets Output** - 2 separate files:
+  - `google_sheets_manager.py` → ALL candidates database
+  - `recruitment_agent.py` → Interview schedule (shortlisted only)
 
 ---
 
@@ -318,36 +326,55 @@ Summary:
 
 OUTPUT FILES:
   • JSON: output/enhanced_candidates_20251021_155421.json
-  • Google Sheets #1 (All Candidates): https://docs.google.com/spreadsheets/d/... 
-  • Google Sheets #2 (Interview Schedule): https://docs.google.com/spreadsheets/d/...
+  • Google Sheet File #1 (All Candidates): https://docs.google.com/spreadsheets/d/... 
+  • Google Sheet File #2 (Interview Schedule): https://docs.google.com/spreadsheets/d/...
   • CSV: output/Scheduled_Interviews_20251021_155604.csv
   • Calendar Events: 4 interviews created
 
-📌 NOTE: Two separate Google Sheets are created:
-   - Sheet 1: "AI_Recruiter_Database" (ALL candidates with scores/status)
-   - Sheet 2: "Interview Schedule" (ONLY shortlisted candidates with calendar links)
+📌 NOTE: Two separate Google Sheets **files** are created (not tabs in one sheet):
+   - First Spreadsheet: "AI_Recruiter_Database" (ALL candidates with scores/status)
+   - Second Spreadsheet: "Interview Schedule" (ONLY shortlisted candidates with calendar links)
 ```
 
 ---
 
 ## 📦 Installation
 
-### System Requirements
+### ⚠️ READ THIS FIRST
 
-- **OS**: Windows 10/11, macOS 10.15+, or Linux
-- **Python**: 3.11 or higher
-- **Memory**: 4GB RAM minimum
-- **Disk**: 500MB free space
+**Critical:** This project uses **Composio SDK v0.8.20** with `ComposioToolSet` API.  
+**DO NOT** install newer versions as they have incompatible APIs.
 
-### Step-by-Step Installation
+👉 **[Follow INSTALLATION.md for complete setup guide](INSTALLATION.md)**
 
-#### 1. Install Python Dependencies
+### Quick Installation (For Experienced Users)
+
+#### 1. Clone & Setup Virtual Environment
+
+```bash
+git clone https://github.com/AshParmar/horizon-latex.git
+cd horizon-latex
+python -m venv comp
+source comp/bin/activate  # On Windows: .\comp\Scripts\Activate.ps1
+```
+
+#### 2. Install Exact Dependency Versions
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 2. Set Up Composio Integrations
+**Verify Composio version:**
+```bash
+python -c "from composio import ComposioToolSet; print('✅ Ready')"
+```
+
+If you get `ImportError`, you have wrong version:
+```bash
+pip install composio==0.8.20 --force-reinstall
+```
+
+#### 3. Set Up Composio Integrations
 
 Follow our [detailed setup guide](docs/API_KEYS_SETUP.md) to connect:
 
@@ -356,14 +383,24 @@ Follow our [detailed setup guide](docs/API_KEYS_SETUP.md) to connect:
 3. **Google Sheets** - For data export
 4. **LinkedIn** (Optional) - For profile enrichment
 
-#### 3. Get API Keys
+#### 4. Get API Keys
 
 - **Composio API Key**: [composio.dev/app](https://composio.dev/app)
 - **Groq API Key**: [console.groq.com/keys](https://console.groq.com/keys)
 
-#### 4. Configure Environment Variables
+#### 5. Configure Environment Variables
 
 See [Configuration](#️-configuration) section below.
+
+### Common Installation Issues
+
+| Error | Solution |
+|-------|----------|
+| `cannot import ComposioToolSet` | Run: `pip install composio==0.8.20 --force-reinstall` |
+| `'Composio' object has no attribute 'execute_action'` | Wrong version! Reinstall: `pip install composio==0.8.20` |
+| `ModuleNotFoundError: composio` | Activate virtual environment and run `pip install -r requirements.txt` |
+
+**For complete troubleshooting, see [INSTALLATION.md](INSTALLATION.md)**
 
 ---
 
@@ -545,13 +582,15 @@ The heart of the system - a LangGraph state machine that orchestrates all compon
 - **Output**: Complete pipeline execution with all candidate data
 
 #### **Business Orchestrator** (`src/agents/recruitment_agent.py`)
-Coordinates multiple utilities for complex business logic:
-- **What it does**: Manages scoring, scheduling, and export workflows
+Coordinates scoring, scheduling, and creates the interview schedule sheet:
+- **What it does**: Manages scoring, scheduling calendar events, and creating interview sheet
 - **Key features**:
-  - Batch processing of candidates
-  - Threshold-based filtering
-  - Coordinated API calls to Google services
-- **Used by**: Main pipeline for steps 4-7 (scoring through export)
+  - Batch processing of candidates with AI scoring
+  - Threshold-based filtering (only shortlisted get interviews)
+  - Creates Google Calendar events for shortlisted candidates
+  - Creates "Interview Schedule" Google Sheet (shortlisted only with calendar links)
+- **Used by**: Main pipeline for steps 4-5 (scoring + scheduling) and step 6B (interview sheet)
+- **Note**: This creates the SECOND Google Sheet (not google_sheets_manager.py)
 
 #### **📊 File Interaction Diagram**
 
@@ -609,17 +648,22 @@ Here's how the files work together:
 ├────────────────────────────────────────────────────────┤
 │                                                        │
 │  recruitment_agent.py (Orchestrator)                   │
-│     ├─> Coordinates 3 utilities:                       │
+│     ├─> Coordinates scoring + scheduling + export:     │
 │     │                                                  │
 │     ├─> 🤖 candidate_scorer.py                         │
 │     │      └─> Groq AI evaluation                      │
 │     │                                                  │
 │     ├─> 📅 interview_scheduler.py                      │
 │     │      └─> Composio Google Calendar                │
+│     │      └─> Creates calendar events (shortlisted)   │
 │     │                                                  │
-│     └─> 📊 google_sheets_manager.py                    │
+│     └─> 📊 Creates "Interview Schedule" Sheet          │
 │            └─> Composio Google Sheets                  │
-│            └─> Creates 2 sheets (all + interviews)     │
+│            └─> ONLY shortlisted with interview times   │
+│                                                        │
+│  📊 google_sheets_manager.py (Independent Utility)     │
+│     └─> Creates "AI_Recruiter_Database" Sheet         │
+│     └─> ALL candidates (shortlisted + rejected)        │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
@@ -652,7 +696,7 @@ Here's how the files work together:
 │     └─> recruitment_pipeline_graph.png                 │
 │                                                        │
 │  Google Services (via Composio)                        │
-│     ├─> Google Sheets (2 sheets)                       │
+│     ├─> Google Sheets (2 separate spreadsheet files)   │
 │     └─> Google Calendar (interview events)             │
 │                                                        │
 └────────────────────────────────────────────────────────┘
@@ -719,13 +763,13 @@ Here's how the files work together:
      - Sets default duration (45 min) and time slots
    - **Output**: Calendar event IDs and links
 
-6. **`google_sheets_manager.py`** - Sheets Export
-   - **What it does**: Creates and populates Google Sheets with candidate data
+6. **`google_sheets_manager.py`** - All Candidates Sheet Export
+   - **What it does**: Creates ONE Google Sheets file with ALL candidate data (complete database)
    - **How it works**:
-     - **Sheet 1**: All candidates with scores and status
-     - **Sheet 2**: Only shortlisted candidates with interview times
-     - Uses Composio Google Sheets actions for CRUD operations
-   - **Output**: Shareable Google Sheets URLs
+     - **"AI_Recruiter_Database" Spreadsheet**: All candidates with scores, skills, experience, and status
+     - Uses Composio Google Sheets actions to create spreadsheet file
+   - **Output**: One shareable Google Sheets URL with complete candidate database
+   - **Note**: This is the main database sheet for all applicants (shortlisted + rejected)
 
 #### **Configuration** (`src/config/`)
 
@@ -773,33 +817,39 @@ MAIN ENTRY POINT: ai_recruiter_pipeline.py
     │   │
     │   ├─ DECISION: score >= threshold?
     │   │   ├─ YES → interview_scheduler.py
-    │   │   │        └─ Creates calendar events
+    │   │   │        └─ Creates calendar events (shortlisted only)
     │   │   └─ NO → Skip scheduling
     │   │
-    │   └─ google_sheets_manager.py
-    │       ├─ Creates "All Candidates" sheet
-    │       ├─ Creates "Interview Schedule" sheet
-    │       └─ Exports CSV
+    │   └─ recruitment_agent.py ALSO creates:
+    │       └─ "Interview Schedule" Google Sheet (shortlisted only)
+    │
+    ├─ STEP 6A: google_sheets_manager.py (CALLED BY PIPELINE)
+    │   └─ Creates "All Candidates Database" sheet (everyone)
+    │
+    ├─ STEP 6B: recruitment_agent.py (CALLED BY PIPELINE)
+    │   └─ Creates "Interview Schedule" sheet (shortlisted + calendar info)
     │
     └─ RETURNS: Complete results with all URLs and stats
 ```
 
 **Key Integration Rules:**
 - ✅ **Steps 1-3**: Independent utilities, can be tested standalone
-- ✅ **Steps 4-8**: Orchestrated by `recruitment_agent.py` for coordinated operations
+- ✅ **Steps 4-5**: Orchestrated by `recruitment_agent.py` (scoring + scheduling)
+- ✅ **Step 6A**: `google_sheets_manager.py` creates ALL candidates sheet
+- ✅ **Step 6B**: `recruitment_agent.py` creates SHORTLISTED interview sheet
 - ✅ **All steps**: Load configuration from `src/config/`
 - ✅ **State flow**: Each step receives output from previous step via TypedDict
 - ✅ **Error handling**: Each component has fallback strategies
 
 **File Responsibility Summary:**
-- `ai_recruiter_pipeline.py` → **Workflow orchestrator** (defines the graph)
-- `recruitment_agent.py` → **Business orchestrator** (coordinates scoring/scheduling/export)
+- `ai_recruiter_pipeline.py` → **Workflow orchestrator** (defines the 8-node graph)
+- `recruitment_agent.py` → **Business orchestrator** (scoring + scheduling + interview sheet)
 - `auto_gmail_monitor.py` → **Data ingestion** (gets resumes)
 - `pdf_extractor.py` → **Data extraction** (parses resumes)
 - `linkedin_enricher.py` → **Data enrichment** (adds profile details)
 - `candidate_scorer.py` → **Evaluation** (AI scoring)
-- `interview_scheduler.py` → **Automation** (creates calendar events)
-- `google_sheets_manager.py` → **Export** (creates sheets)
+- `interview_scheduler.py` → **Calendar automation** (creates calendar events for shortlisted)
+- `google_sheets_manager.py` → **Database export** (creates ALL candidates sheet)
 
 ---
 
