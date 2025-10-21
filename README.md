@@ -589,37 +589,37 @@ Here's how the files work together:
 │  STEP 1-3: Independent Utilities                       │
 ├────────────────────────────────────────────────────────┤
 │                                                        │
-│  📧 auto_gmail_monitor.py                             │
-│     └─> Composio Gmail API                           │
-│     └─> Downloads to: incoming_resumes/              │
+│  📧 auto_gmail_monitor.py                              │
+│     └─> Composio Gmail API                             │
+│     └─> Downloads to: incoming_resumes/                │
 │                                                        │
-│  📄 pdf_extractor.py                                  │
-│     └─> PyMuPDF (fitz)                               │
-│     └─> Groq AI for parsing                          │
-│     └─> Saves to: processed_candidates/              │
+│  📄 pdf_extractor.py                                   |
+│     └─> PyMuPDF (fitz)                                 │
+│     └─> Groq AI for parsing                            │
+│     └─> Saves to: processed_candidates/                │
 │                                                        │
-│  🔗 linkedin_enricher.py                              │
-│     └─> Composio LinkedIn API (primary)              │
-│     └─> Groq LLM (fallback)                          │
+│  🔗 linkedin_enricher.py                               │
+│     └─> Composio LinkedIn API (primary)                │
+│     └─> Groq LLM (fallback)                            │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────────────────────────┐
-│  STEP 4-8: Orchestrated via recruitment_agent.py      │
+│  STEP 4-8: Orchestrated via recruitment_agent.py       │
 ├────────────────────────────────────────────────────────┤
 │                                                        │
-│  recruitment_agent.py (Orchestrator)                  │
-│     ├─> Coordinates 3 utilities:                     │
+│  recruitment_agent.py (Orchestrator)                   │
+│     ├─> Coordinates 3 utilities:                       │
 │     │                                                  │
-│     ├─> 🤖 candidate_scorer.py                       │
-│     │      └─> Groq AI evaluation                    │
+│     ├─> 🤖 candidate_scorer.py                         │
+│     │      └─> Groq AI evaluation                      │
 │     │                                                  │
-│     ├─> 📅 interview_scheduler.py                    │
-│     │      └─> Composio Google Calendar              │
+│     ├─> 📅 interview_scheduler.py                      │
+│     │      └─> Composio Google Calendar                │
 │     │                                                  │
-│     └─> 📊 google_sheets_manager.py                  │
-│            └─> Composio Google Sheets                │
-│            └─> Creates 2 sheets (all + interviews)   │
+│     └─> 📊 google_sheets_manager.py                    │
+│            └─> Composio Google Sheets                  │
+│            └─> Creates 2 sheets (all + interviews)     │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
@@ -627,18 +627,18 @@ Here's how the files work together:
 │  CONFIGURATION: Loaded by all components               │
 ├────────────────────────────────────────────────────────┤
 │                                                        │
-│  src/config/                                          │
-│     ├─> settings.py (Pydantic models)                │
-│     ├─> legacy_config.py (loads .env)                │
-│     └─> validator.py (validates setup)               │
+│  src/config/                                           │
+│     ├─> settings.py (Pydantic models)                  │
+│     ├─> legacy_config.py (loads .env)                  │
+│     └─> validator.py (validates setup)                 │
 │                                                        │
-│  Environment Variables (.env)                         │
-│     ├─> COMPOSIO_API_KEY                             │
-│     ├─> GROQ_API_KEY                                 │
-│     ├─> GMAIL_* (3 variables)                        │
-│     ├─> GOOGLE_CALENDAR_* (3 variables)              │
-│     ├─> GOOGLE_SHEETS_* (3 variables)                │
-│     └─> LINKEDIN_* (2 variables, optional)           │
+│  Environment Variables (.env)                          │
+│     ├─> COMPOSIO_API_KEY                               │
+│     ├─> GROQ_API_KEY                                   │
+│     ├─> GMAIL_* (3 variables)                          │
+│     ├─> GOOGLE_CALENDAR_* (3 variables)                │
+│     ├─> GOOGLE_SHEETS_* (3 variables)                  │
+│     └─> LINKEDIN_* (2 variables, optional)             │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
@@ -646,14 +646,14 @@ Here's how the files work together:
 │  OUTPUT: Generated by pipeline execution               │
 ├────────────────────────────────────────────────────────┤
 │                                                        │
-│  output/                                              │
-│     ├─> enhanced_candidates_*.json                   │
-│     ├─> Scheduled_Interviews_*.csv                   │
-│     └─> recruitment_pipeline_graph.png               │
+│  output/                                               │
+│     ├─> enhanced_candidates_*.json                     │
+│     ├─> Scheduled_Interviews_*.csv                     │
+│     └─> recruitment_pipeline_graph.png                 │
 │                                                        │
-│  Google Services (via Composio)                       │
-│     ├─> Google Sheets (2 sheets)                     │
-│     └─> Google Calendar (interview events)           │
+│  Google Services (via Composio)                        │
+│     ├─> Google Sheets (2 sheets)                       │
+│     └─> Google Calendar (interview events)             │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
@@ -661,11 +661,11 @@ Here's how the files work together:
 │  UTILITIES: Helper Scripts                             │
 ├────────────────────────────────────────────────────────┤
 │                                                        │
-│  scripts/validate_config.py                           │
-│     └─> Tests all API keys and connections           │
+│  scripts/validate_config.py                            │
+│     └─> Tests all API keys and connections             │
 │                                                        │
-│  scripts/visualize_pipeline.py                        │
-│     └─> Generates workflow diagram (ASCII + PNG)     │
+│  scripts/visualize_pipeline.py                         │
+│     └─> Generates workflow diagram (ASCII + PNG)       │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 ```
