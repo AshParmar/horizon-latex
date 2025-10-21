@@ -7,7 +7,7 @@ Handles LinkedIn profile enrichment via Composio API
 import json
 from typing import Dict, Optional
 from composio import ComposioToolSet, Action
-from minimal_config import (
+from ..config.legacy_config import (
     COMPOSIO_API_KEY, 
     GROQ_API_KEY, 
     GROQ_MODEL,
@@ -18,38 +18,92 @@ from groq import Groq
 
 
 class LinkedInEnricher:
-    """LinkedIn Profile Enrichment Service"""
+    """
+    LinkedIn Profile Enrichment Service
+    
+    Strategy:
+    1. Try LinkedIn API (if properly configured with Composio)
+    2. Fallback to LLM enrichment (always works, generates professional insights)
+    
+    Note: LinkedIn API integration in Composio requires proper OAuth connection
+    and may have limited actions. LLM enrichment provides reliable results.
+    """
     
     def __init__(self):
         self.composio_toolset = ComposioToolSet(api_key=COMPOSIO_API_KEY)
         self.groq_client = Groq(api_key=GROQ_API_KEY)
         print("🔗 LinkedIn Enricher initialized")
+        print("   Strategy: LinkedIn API attempt → LLM enrichment fallback")
     
     def fetch_real_linkedin_data(self, linkedin_url: str) -> Dict:
-        """Fetch real LinkedIn data via Composio API"""
+        """
+        Fetch real LinkedIn data via Composio API
+        
+        Note: LinkedIn API in Composio typically requires:
+        1. LINKEDIN_GET_PROFILE action to get any profile by URL
+        2. LINKEDIN_GET_MY_INFO to get your own authenticated profile
+        
+        Since we want to enrich candidate profiles, we'd use GET_PROFILE
+        """
         try:
-            linkedin_account_id = LINKEDIN_CONNECTED_ACCOUNT_ID
             entity_id = LINKEDIN_ENTITY_ID
             
-            print(f"🔍 Fetching LinkedIn data for: {linkedin_url}")
+            print(f"🔍 Attempting LinkedIn API call for: {linkedin_url}")
             
-            result = self.composio_toolset.execute_action(
-                action=Action.LINKEDIN_GET_MY_INFO,
-                params={},
-                connected_account_id=linkedin_account_id,
-                entity_id=entity_id
-            )
+            # Method 1: Try to get profile by URL (if action exists)
+            try:
+                # LinkedIn profile enrichment usually requires the profile URL
+                result = self.composio_toolset.execute_action(
+                    action=Action.LINKEDIN_GET_PROFILE,  # Action to get OTHER people's profiles
+                    params={"profile_url": linkedin_url},
+                    entity_id=entity_id
+                )
+                
+                if result.get('successful'):
+                    data = result.get('data', {})
+                    data['is_connected_account'] = True
+                    print(f"✅ LinkedIn profile data fetched via GET_PROFILE")
+                    return data
+            except AttributeError:
+                # Action doesn't exist, try alternative
+                print(f"⚠️ LINKEDIN_GET_PROFILE action not available")
+            except Exception as e:
+                print(f"⚠️ GET_PROFILE failed: {str(e)[:100]}")
             
-            if result.get('successful'):
-                data = result.get('data', {})
-                data['is_connected_account'] = True
-                return data
-            else:
-                print(f"❌ LinkedIn API call failed")
-                return {}
+            # Method 2: Try getting your own info (limited usefulness for candidate enrichment)
+            try:
+                result = self.composio_toolset.execute_action(
+                    action=Action.LINKEDIN_GET_MY_INFO,  # Gets YOUR profile, not the candidate's
+                    params={},
+                    entity_id=entity_id
+                )
+                
+                if result.get('successful'):
+                    print(f"⚠️ Got authenticated user's profile (not candidate's)")
+                    print(f"   This won't match the candidate unless they're the authenticated user")
+                    return {}  # Don't use this data as it's not the candidate's
+            except Exception as e:
+                print(f"⚠️ GET_MY_INFO also failed: {str(e)[:100]}")
+            
+            print(f"❌ All LinkedIn API methods failed")
+            print(f"💡 Tip: Ensure LinkedIn account is properly connected in Composio dashboard")
+            print(f"   Entity ID: {entity_id[:20]}..." if len(entity_id) > 20 else f"   Entity ID: {entity_id}")
+            return {}
                 
         except Exception as e:
-            print(f"❌ LinkedIn fetch error: {str(e)}")
+            error_msg = str(e)
+            print(f"❌ LinkedIn fetch error: {error_msg}")
+            
+            # Provide helpful troubleshooting tips
+            if "Invalid connected account ID format" in error_msg:
+                print(f"💡 Fix: The connected account ID format is invalid")
+                print(f"   Current ID: {LINKEDIN_CONNECTED_ACCOUNT_ID}")
+                print(f"   Solution: Go to Composio dashboard and get a valid LinkedIn connection")
+                print(f"   URL: https://app.composio.dev/your_app/connections")
+            elif "not found" in error_msg.lower():
+                print(f"💡 Fix: LinkedIn account not connected")
+                print(f"   Solution: Connect your LinkedIn account in Composio dashboard")
+            
             return {}
     
     def generate_linkedin_fields_with_ai(self, candidate: Dict) -> Dict:
@@ -118,11 +172,18 @@ class LinkedInEnricher:
         linkedin_url = candidate.get('linkedin_url', '')
         
         if linkedin_url and 'linkedin.com' in linkedin_url:
-            print(f"📡 Fetching REAL LinkedIn data...")
-            linkedin_data = self.fetch_real_linkedin_data(linkedin_url)
+            print(f"📡 Attempting to fetch REAL LinkedIn data via API...")
+            try:
+                linkedin_data = self.fetch_real_linkedin_data(linkedin_url)
+            except Exception as api_error:
+                print(f"⚠️ LinkedIn API error: {str(api_error)[:100]}")
+                print(f"   Falling back to LLM enrichment...")
+                linkedin_data = {}
             
-            if linkedin_data and linkedin_data.get('response_dict'):
-                profile = linkedin_data['response_dict']
+            # Check if we got valid LinkedIn data
+            if linkedin_data and (linkedin_data.get('response_dict') or linkedin_data.get('data')):
+                # Extract profile data
+                profile = linkedin_data.get('response_dict') or linkedin_data.get('data', {})
                 
                 # Verify if this matches the candidate's email
                 candidate_email = candidate.get('email', '').lower()
@@ -133,13 +194,16 @@ class LinkedInEnricher:
                     enriched_candidate['linkedin_verified'] = True
                     enriched_candidate['linkedin_name'] = profile.get('name', '')
                     enriched_candidate['linkedin_picture'] = profile.get('picture', '')
-                    print("✅ LinkedIn profile verified (email match)")
+                    enriched_candidate['linkedin_source'] = 'api_verified'
+                    print("✅ LinkedIn profile verified via API (email match)")
                 else:
                     enriched_candidate['linkedin_verified'] = False
                     enriched_candidate['linkedin_has_profile'] = True
-                    print("✅ LinkedIn profile found (not verified - different account)")
+                    enriched_candidate['linkedin_source'] = 'api_unverified'
+                    print("✅ LinkedIn profile found via API (different account)")
             else:
-                print("⚠️ No LinkedIn data returned")
+                print("⚠️ LinkedIn API unavailable - will use LLM enrichment only")
+                enriched_candidate['linkedin_source'] = 'llm_fallback'
         
         # Generate AI-powered LinkedIn fields
         print("🤖 Generating AI-enhanced LinkedIn fields...")

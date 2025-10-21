@@ -10,7 +10,7 @@ import fitz  # PyMuPDF
 from pathlib import Path
 from typing import Dict, List, Optional
 from groq import Groq
-from minimal_config import GROQ_API_KEY, GROQ_MODEL
+from ..config.legacy_config import GROQ_API_KEY, GROQ_MODEL
 
 
 class PDFExtractor:

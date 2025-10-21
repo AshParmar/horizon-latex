@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from composio import ComposioToolSet
 from composio.client.enums import Action
-from minimal_config import (
+from ..config.legacy_config import (
     COMPOSIO_API_KEY,
     GMAIL_ACCOUNT_ID,
     GMAIL_USER_ID,

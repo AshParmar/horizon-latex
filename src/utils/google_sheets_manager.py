@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 from typing import List, Dict, Optional
 from composio import ComposioToolSet, Action
-from minimal_config import (
+from ..config.legacy_config import (
     COMPOSIO_API_KEY, 
     GOOGLE_SHEETS_ACCOUNT_ID, 
     GOOGLE_SHEETS_USER_ID,

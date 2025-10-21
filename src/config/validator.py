@@ -5,7 +5,7 @@ Checks if all environment variables are properly loaded
 """
 
 try:
-    from minimal_config import validate_config, COMPOSIO_API_KEY, GROQ_API_KEY
+    from .legacy_config import validate_config, COMPOSIO_API_KEY, GROQ_API_KEY
     
     print("🔧 Validating AI Recruiter Configuration...")
     print("=" * 50)
