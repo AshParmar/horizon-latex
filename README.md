@@ -90,14 +90,13 @@ Traditional recruitment is painfully slow and manual:
 
 ## 🏗️ Architecture
 
-### 🎨 **Visual Workflow** 
+### 🎨 **Visual Workflow**
 
-> **📊 Want to see the complete workflow with all details?**  
-> GitHub has a built-in viewer for `.drawio` files, so you can explore the full, interactive workflow diagram.
->
-> - **[View the Complete Workflow Diagram (Horizon-latex.drawio)](Horizon-latex.drawio)**
->
-> You can also generate a static image of the graph by running:
+Below is a high-level diagram of the complete AI Recruiter pipeline, from monitoring emails to scheduling interviews and exporting data.
+
+![AI Recruiter Workflow Diagram](docs/images/workflow.png)
+
+> You can also generate a real-time image of the graph by running:
 > `python scripts/visualize_pipeline.py`
 
 ### LangGraph Workflow (8 Nodes with Conditional Routing)
