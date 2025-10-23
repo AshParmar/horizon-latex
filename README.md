@@ -93,12 +93,12 @@ Traditional recruitment is painfully slow and manual:
 ### 🎨 **Visual Workflow** 
 
 > **📊 Want to see the complete workflow with all details?**  
-> Check out our comprehensive visualization guides:
-> - **[Complete Graph Visualization](docs/GRAPH_VISUALIZATION_GUIDE.md)** - ASCII diagrams with all nodes
-> - **[Advanced Pipeline Details](docs/ADVANCED_LANGGRAPH_PIPELINE.md)** - Conditional routing explained
-> - **[Graph Summary](docs/COMPLETE_GRAPH_SUMMARY.md)** - Before/After comparison
+> GitHub has a built-in viewer for `.drawio` files, so you can explore the full, interactive workflow diagram.
 >
-> Or run: `python scripts/visualize_pipeline.py` to generate the graph image
+> - **[View the Complete Workflow Diagram (Horizon-latex.drawio)](Horizon-latex.drawio)**
+>
+> You can also generate a static image of the graph by running:
+> `python scripts/visualize_pipeline.py`
 
 ### LangGraph Workflow (8 Nodes with Conditional Routing)
 
